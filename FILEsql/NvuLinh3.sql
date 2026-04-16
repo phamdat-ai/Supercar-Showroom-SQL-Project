@@ -1,0 +1,4 @@
+﻿/*Liệt Kê các xe có giá trên 400000 USD*/
+SELECT * FROM DANH_SACH_XE
+WHERE Gia_USD > 400000
+ORDER BY Gia_USD DESC;

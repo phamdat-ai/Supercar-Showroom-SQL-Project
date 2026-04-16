@@ -1,0 +1,63 @@
+﻿USE QuanLyShowRoomXe;
+GO
+
+CREATE TABLE DANH_SACH_XE(
+	ID_Xe VARCHAR(10) PRIMARY KEY,
+	Ten_Xe NVARCHAR(100) NOT NULL,
+	Ma_Hang VARCHAR(10),
+	Ma_Loai VARCHAR(10),
+	Dong_Co NVARCHAR(30),
+	Ma_Luc_HP INT,
+	Toc_Do_Toi_Da_KmH INT,
+	Tang_Toc_0_100_s Decimal(3,1),
+	Gia_USD INT,
+	Mau_Sac NVARCHAR(50),
+	Mo_Ta_Xe NVARCHAR(500),
+	Link NVARCHAR(500),
+
+	CONSTRAINT FK_Xe_Hang FOREIGN KEY (Ma_Hang) REFERENCES HANG_XE(Ma_Hang),
+	CONSTRAINT FK_Xe_Loai FOREIGN KEY (Ma_Loai) REFERENCES LOAI_XE(Ma_Loai));
+
+INSERT INTO DANH_SACH_XE (ID_Xe,Ten_Xe,Ma_Hang,Ma_Loai,Dong_Co,Ma_Luc_HP,Toc_Do_Toi_Da_KmH,Tang_Toc_0_100_s,Gia_USD,Mau_Sac,Mo_Ta_Xe,Link) VALUES
+('X001',N'Ferrari 488 GTB','H01','L01',N'3.9L V8',661,330,3.0,280000,N'Đỏ',N'Coupe 2 cửa hiệu năng cao, thiết kế khí động học đặc trưng Ferrari',N'https://www.carfolio.com/ferrari-488-gtb-399883'),
+('X002',N'Ferrari Portofino','H01','L02',N'3.9L V8',591,320,3.5,210000,N'Đỏ',N'Xe mui trần sang trọng, phù hợp du lịch và trải nghiệm tốc độ',N'https://www.carfolio.com/ferrari-portofino-528550'),
+('X003',N'Ferrari SF90 Stradale','H01','L03',N'Hybrid',986,340,2.5,520000,N'Xám',N'Hybercar hybrid với sức mạnh gần 1000 mã lực',N'https://www.carfolio.com/ferrari-sf90-stradale-595606'),
+('X004',N'Ferrari 296 GTB','H01','L05',N'Hybrid',819,330,2.9,340000,N'Đỏ',N'GT cao cấp kết hợp  hiệu suất và sự thoải mái',N'https://www.carfolio.com/ferrari-296-gtb-728376'),
+('X005',N'Lamborghini Huracan','H02','L01',N'5.2L V10',631,325,2.9,30000,N'Cam',N'Coupe thể thao với thiết kế góc cạnh và âm thanh đặc trưng',N'https://www.carfolio.com/search/results/?terms=Lamborghini+Huracan'),
+('X006',N'Lamborghini Aventador Roadster','H02','L02',N'6.5L V12',770,350,2.8,50000,N'Xanh',N'Mui trần V12 mạnh mẽ, trải nghiệm lái đỉnh cao',N'https://www.carfolio.com/lamborghini-aventador-roadster-lp-700-4-337700'),
+('X007',N'Lamborghini Revuelto','H02','L03',N'Hybrid',1000,350,2.5,60000,N'Cam',N'Hypercar thế hệ mới với công nghệ Hybrid',N'https://www.carfolio.com/lamborghini-revuelto-795201'),
+('X008',N'Lamborghini Urus Performante','H02','L04',N'4.0L V8',657,306,3.3,260000,N'Đen',N'Super SUV kết hợp tốc độ và khả năng đa dụng',N'https://www.carfolio.com/lamborghini-urus-performante-771947'),
+('X009',N'Bugatti Chiron','H03','L03',N'8.0L W16',1479,420,2.4,3000000,N'Xanh',N'Siêu xe giới hạn với tốc độ cực đại hàng đầu thế giới',N'https://www.carfolio.com/search/results/?terms=chiron'),
+('X010',N'Bugatti Mistral','H03','L02',N'8.0L W16',1578,420,2.5,5000000,N'Đen',N'Hypercar mui trần cực hiếm và đắt đỏ',N'https://www.carfolio.com/bugatti-mistral-w16-831710'),
+('X011',N'Bugatti Bolide','H03','L06',N'8.0L W16',1825,500,2.2,4000000,N'Xanh-Đen',N'Xe track-only tối ưu cho đường đua',N'https://www.bugatti.com/en/models/bolide'),
+('X012',N'Bugatti Divo','H03','L05',N'8.0L W16',1479,380,2.4,3500000,N'Xám Titan',N'GT hiệu suất cao với thiết kế khí động học',N'https://www.carfolio.com/bugatti-divo-557227'),
+('X013',N'Porsche 911 Carrera','H04','L01',N'3.0L ',379,293,4.0,120000,N'Bạc',N'Coupe thể thao cân bằng giữa hiệu năng và tiện nghi',N'https://www.carfolio.com/porsche-911-carrera-gts-cabriolet-sport-chrono-804056'),
+('X014',N'Porsche 911 Cabriolet','H04','L02',N'3.0L',379,290,4.2,130000,N'Trắng',N'Mui trần thể thao phù hợp sử dụng hàng ngày',N'https://www.carfolio.com/porsche-911-carrera-gts-cabriolet-sport-chrono-804056'),
+('X015',N'Porsche 918 Spyder','H04','L03',N'Hybrid',887,340,2.6,1000000,N'Xanh',N'Hypercar hybrid huyền thoại của Porsche',N'https://www.carfolio.com/porsche-918-spyder-343673'),
+('X016',N'Porsche Panamera','H04','L05',N'2.9L',325,270,5.6,90000,N'Đen',N'GT sedan cao cấp cho đường dài',N'https://www.carfolio.com/porsche-panamera-turbo-s-e-hybrid-512237'),
+('X017',N'McLaren 720s','H05','L01',N'4.0L V8',710,341,2.8,310000,N'Cam',N'Coupe siêu xe với hiệu suất vượt trội',N'https://www.carfolio.com/mclaren-720s-511907'),
+('X018',N'McLaren 765LT Spider','H05','L02',N'4.0L V8',755,330,2.8,380000,N'Xanh',N'Mui trần hiệu suất cao, trọng lượng nhẹ',N'https://cars.mclaren.com/gl_en/legacy/765lt-spider'),
+('X019',N'McLaren P1','H05','L03',N'Hybrid',903,350,2.8,1500000,N'Vàng',N'Hypercar hybrid giới hạn',N'https://www.carfolio.com/mclaren-p1-319495'),
+('X020',N'McLaren Senna','H05','L06',N'4.0L V8',800,340,2.7,1000000,N'Xám',N'Xe track-focused tối ưu khí động học',N'https://www.carfolio.com/mclaren-senna-543290'),
+('X021',N'Koenigsegg Jesko','H06','L03',N'5.0L V8',1600,480,2.5,3000000,N'Trắng',N'Hypercar mạnh nhất thế giới',N'https://www.carfolio.com/koenigsegg-jesko-593296'),
+('X022',N'Koenigsegg Regera','H06','L03',N'Hybrid',1500,410,2.8,2000000,N'Xám',N'Hypercar không hộp số truyền thống',N'https://www.carfolio.com/koenigsegg-regera-402996'),
+('X023',N'Koenigsegg CC850','H06','L05',N'5.0L V8',1385,450,2.7,3500000,N'Xanh',N'GT hiệu suất cao cực hiếm ',N'https://www.carfolio.com/koenigsegg-cc850-773146'),
+('X024',N'Koenigsegg Agera RS','H06','L03',N'5.0L V8',1160,447,2.9,2500000,N'Đen',N'Hypercar phá kỷ lục tốc độ',N'https://www.carfolio.com/koenigsegg-agera-rs-402644'),
+('X025',N'Aston Martin Vantage','H07','L01',N'4.0L V8',503,314,3.6,200000,N'Xanh',N'Coupe thể thao sang trọng',N'https://www.carfolio.com/aston-martin-vantage-roadster-824010'),
+('X026',N'ASton Martin DB11 Volante','H07','L02',N'4.0L V8',503,300,3.9,220000,N'Trắng',N'Mui trần cao cấp',N'https://www.carfolio.com/aston-martin-db11-volante-531201'),
+('X027',N'Aston Martin Valkyrie','H07','L03',N'Hybrid',1160,400,2.5,3000000,N'Đỏ',N'Hypercar công nghệ F1 ',N'https://www.carfolio.com/aston-martin-valkyrie-coupe-797335'),
+('X028',N'Aston Martin DB12','H07','L05',N'4.0L V8',671,325,3.5,250000,N'Đen',N'GT sang trọng',N'https://www.carfolio.com/aston-martin-db12-volante-800107'),
+('X029',N'Pagani Huayra','H08','L03',N'6.0L V12',730,383,2.8,2600000,N'Bạc',N'Hypercar thủ công cực hiếm',N'https://www.carfolio.com/pagani-huayra-267773'),
+('X030',N'Pagani Huayra Roadster','H08','L02',N'6.0L V12',754,380,2.9,3000000,N'Xanh',N'Mui trần đẳng cấp',N'https://www.carfolio.com/pagani-huayra-roadster-510125'),
+('X031',N'Pagani Zonda R','H08','L06',N'6.0L V12',750,350,2.7,2800000,N'Xám',N'Xe track-only huyền thoại',N'https://www.carfolio.com/pagani-utopia-776644'),
+('X032',N'Pagani Utopia','H08','L05',N'6.0L V12',864,350,2.8,2500000,N'Vàng Gold',N'GT siêu sang thủ công',N'https://www.carfolio.com/pagani-utopia-776644'),
+('X033',N'Roll-Royce Wraith','H09','L02',N'6.6L V12',624,250,4.4,330000,N'Đen',N'Coupe siêu sang',N'https://www.carfolio.com/rolls-royce-wraith-black-badge-490732'),
+('X034',N'Roll-Royce Dawn','H09','L02',N'6.6L V12',563,250,4.9,350000,N'Tím',N'Mui trần siêu sang',N'https://en.wikipedia.org/wiki/Rolls-Royce_Dawn'),
+('X035',N'Roll-Royce Boat Tail','H09','L03',N'6.7L V12',600,250,5.0,28000000,N'Vàng Gold',N'Hypercar siêu hiếm đặt riêng',N'https://www.carfolio.com/rolls-royce-boat-tail-741488'),
+('X036',N'Roll-Royce Spectre','H09','L05',N'Điện',577,250,4.5,420000,N'Đen',N'GT điện siêu sang',N'https://www.carfolio.com/rolls-royce-spectre-black-badge-831160'),
+('X037',N'Bentley Continental GT','H10','L05',N'6.0L W12',626,333,3.7,240000,N'Trắng',N'GT sang trọng',N'https://www.carfolio.com/bentley-continental-gt-convertible-570647'),
+('X038',N'Bentley Continental GTC','H10','L02',N'6.0L W12',626,333,3.8,260000,N'Xanh',N'Mui trần cao cấp',N'https://www.carfolio.com/bentley-continental-gtc-speed-806883'),
+('X039',N'Bentley Bentayga Speed','H10','L04',N'6.0L W12',635,306,3.9,280000,N'Đen',N'SUV hiệu suất cao',N'https://www.carfolio.com/bentley-bentayga-speed-617188'),
+('X040',N'Bentley Bacalar ','H10','L02',N'6.0L W12',650,322,3.5,2000000,N'Vàng',N'Mui trần giới hạn',N'https://www.carfolio.com/bentley-mulliner-bacalar-696993');
+
+SELECT * FROM DANH_SACH_XE;
