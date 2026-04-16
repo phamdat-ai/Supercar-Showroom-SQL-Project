@@ -1,0 +1,5 @@
+ALTER TABLE DANH_SACH_XE
+ADD 
+    Toc_Do_Toi_Da NVARCHAR(50), 
+    Tang_Toc_0_100 VARCHAR(50), 
+    Mau_Sac NVARCHAR(50);
